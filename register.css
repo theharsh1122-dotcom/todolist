@@ -1,27 +1,11 @@
-<<<<<<< HEAD
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial;
-=======
-*{
-    margin: 0;
-    padding:0;
-    box-sizing: border-box;
-}
-
 body{
     font-family: Arial, sans-serif;
     background:#78a8f1;
->>>>>>> 8ecd669587ab1381eeb278c21d72d42763fa0744
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-<<<<<<< HEAD
+
     background: linear-gradient(135deg, #BD289F, #7157C7, #20C9C9);
 }
 
@@ -177,64 +161,4 @@ button:hover {
         font-size: 13px;
     }
 }
-=======
-}
 
-.register-container{
-    width: 350px;
-    background: white;
-    padding: 35px;
-    border-radius: 8px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-}
-
-.register-container h1{
-    font-family: Cambria;
-    text-align: center;
-    margin-bottom: 25px;
-    color: #333;
-}
-
-.register-container input{
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid gray;
-    border-radius: 5px;
-    font-size: 15px;
-    outline: none;
-}
- .register-container button{
-    width: 100%;
-    padding: 12px;
-    background: rgb(0, 89, 255);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    cursor: pointer;
- }
- .register-container button:hover{
-    background-color: #0010f6;
- }
-
- .register-container p{
-    text-align: center;
-    color: red;
-    margin-bottom: 15px;
-    font-size: 14px;
- }
-
- .login-link{
-    text-align: center;
-    margin-top: 15px;
- }
-
- .login-link a{
-    color: #007bff;
-    text-decoration: none;
- }
- .login-link:hover{
-    text-decoration: underline;
- }
->>>>>>> 8ecd669587ab1381eeb278c21d72d42763fa0744

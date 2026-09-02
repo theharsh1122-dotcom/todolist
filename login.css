@@ -1,5 +1,4 @@
 *{
-<<<<<<< HEAD
    margin: 0;
    padding:0;
    box-sizing: border-box;
@@ -37,7 +36,6 @@ body{
    border-radius: 5px;
    font-size: 15px;
    outline: none;
-=======
     margin: 0;
     padding:0;
     box-sizing: border-box;
@@ -75,7 +73,7 @@ body{
     border-radius: 5px;
     font-size: 15px;
     outline: none;
->>>>>>> 8ecd669587ab1381eeb278c21d72d42763fa0744
+
 }
  .login-container button{
     width: 100%;
@@ -110,7 +108,6 @@ body{
  }
  .register-link:hover{
     text-decoration: underline;
-<<<<<<< HEAD
  }
   
  @media (max-width: 768px) {
@@ -173,6 +170,5 @@ body{
         font-size: 13px;
     }
 }
-=======
- }
->>>>>>> 8ecd669587ab1381eeb278c21d72d42763fa0744
+
+

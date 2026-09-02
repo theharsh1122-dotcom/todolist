@@ -12,7 +12,6 @@ if (isset($_POST['login'])) {
               AND password='$password'";
 
     $result = mysqli_query($conn, $query);
-<<<<<<< HEAD
 if (mysqli_num_rows($result) == 1) {
 
     $user = mysqli_fetch_assoc($result);
@@ -25,7 +24,6 @@ if (mysqli_num_rows($result) == 1) {
 
 }
  else {
-=======
 
     if (mysqli_num_rows($result) == 1) {
 
@@ -35,7 +33,7 @@ if (mysqli_num_rows($result) == 1) {
         exit();
 
     } else {
->>>>>>> 8ecd669587ab1381eeb278c21d72d42763fa0744
+
         $error = "Username or password incorrect!";
     }
 }
@@ -49,12 +47,9 @@ if (mysqli_num_rows($result) == 1) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Login Todo List</title>
-<<<<<<< HEAD
    <link rel="stylesheet" href="login.css">
-=======
 
     <link rel="stylesheet" href="login.css">
->>>>>>> 8ecd669587ab1381eeb278c21d72d42763fa0744
 </head>
 
 <body>
