@@ -3,7 +3,6 @@ include "database.php";
 
 if (isset($_POST['register'])) {
 
-<<<<<<< HEAD
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $email = $_POST['email'];
@@ -34,7 +33,6 @@ if (isset($_POST['register'])) {
             $error = "Account not created!";
              }
  }
-=======
     $username = $_POST['username'];
     $password = $_POST['password'];
 
@@ -50,7 +48,6 @@ if (isset($_POST['register'])) {
 
         $error = "Account create nahi hua: " . mysqli_error($conn);
     }
->>>>>>> 8ecd669587ab1381eeb278c21d72d42763fa0744
 }
 ?>
 
@@ -62,10 +59,7 @@ if (isset($_POST['register'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Create Account</title>
-<<<<<<< HEAD
-=======
 
->>>>>>> 8ecd669587ab1381eeb278c21d72d42763fa0744
     <link rel="stylesheet" href="register.css">
 </head>
 
@@ -82,7 +76,6 @@ if (isset($_POST['register'])) {
     ?>
 
     <form method="POST">
-<<<<<<< HEAD
          <label>First Name</label>
         <input type="text" name="first_name" placeholder="Enter First Name"required>
         
@@ -111,7 +104,6 @@ if (isset($_POST['register'])) {
     </form>
     <p class="login-link">
         Already have an account!
-=======
 
         <input type="text" name="username"
                placeholder="Enter the username" required>
@@ -127,7 +119,7 @@ if (isset($_POST['register'])) {
 
     <p class="login-link">
         Already have an account?
->>>>>>> 8ecd669587ab1381eeb278c21d72d42763fa0744
+
         <a href="login.php">Login</a>
     </p>
 
