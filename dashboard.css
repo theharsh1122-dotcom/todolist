@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #80ea66, #764ba2);
+    color: #222;
+    padding: 40px 20px;
+}
+
+.dashboard-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #c9c2b5;
+}
+
+.dashboard-header h1 {
+    font-family: Georgia, serif;
+    font-size: 44px;
+    color: #222;
+}
+
+.dashboard-header p {
+    font-size: 17px;
+    color:black;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 55px;
+}
+
+.stat-box {
+    min-height: 270px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid #d1cbc0;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+}
+
+.stat-box h3 {
+    font-size: 20px;
+    font-weight: normal;
+    color: #666;
+    margin-bottom: 22px;
+}
+
+.stat-box h2 {
+    font-family: Georgia, serif;
+    font-size: 65px;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+.stat-box span {
+    font-size: 16px;
+    color: #43836f;
+}
+
+
+.dashboard-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 35px;
+}
+
+.dashboard-btn,
+.logout-btn {
+    display: inline-block;
+    padding: 11px 20px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.dashboard-btn {
+    background: #263238;
+    color: white;
+}
+
+.dashboard-btn:hover {
+    background: #455a64;
+    transform: translateY(-2px);
+}
+
+.logout-btn {
+    background: #ffe4e4;
+    color: red;
+}
+
+.logout-btn:hover {
+    background: red;
+    color: white;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 25px 15px;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 35px;
+    }
+
+    .dashboard-header p {
+        font-size: 15px;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr;
+        margin-top: 35px;
+        gap: 18px;
+    }
+
+    .stat-box {
+        min-height: 220px;
+        padding: 30px;
+    }
+
+    .stat-box h3 {
+        font-size: 18px;
+    }
+
+    .stat-box h2 {
+        font-size: 52px;
+    }
+
+    .icon {
+        font-size: 34px;
+    }
+
+    .dashboard-buttons {
+        flex-wrap: wrap;
+        margin-top: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 20px 12px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 29px;
+    }
+
+    .dashboard-header p {
+        font-size: 14px;
+    }
+
+    .stats-container {
+        margin-top: 30px;
+    }
+
+    .stat-box {
+        min-height: 190px;
+        padding: 23px;
+        border-radius: 12px;
+    }
+
+    .stat-box h3 {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    .stat-box h2 {
+        font-size: 45px;
+    }
+
+    .stat-box span {
+        font-size: 13px;
+    }
+
+    .icon {
+        font-size: 28px;
+    }
+
+    .dashboard-buttons {
+        width: 100%;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .dashboard-btn,
+    .logout-btn {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+}

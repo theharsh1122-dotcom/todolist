@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(120deg, #ffb52e, #ff5b0a);
+    font-family: Arial, sans-serif;
+}
+
+.edit-container {
+    width: 420px;
+    max-width: 100%;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+}
+
+.edit-container h2 {
+    text-align: center;
+    margin-bottom: 22px;
+    color: blueviolet;
+    font-family: Cambria, serif;
+    font-size: 28px;
+}
+
+.edit-container form {
+    width: 100%;
+}
+
+.edit-container form > label {
+    display: block;
+    margin-bottom: 6px;
+    font-family: Cambria, serif;
+    font-weight: bold;
+    color: #222;
+}
+
+.edit-container input[type="text"],
+.edit-container input[type="email"],
+.edit-container input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 14px;
+    border: 2px solid #555;
+    border-radius: 6px;
+    outline: none;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: 0.3s ease;
+}
+
+.edit-container input[type="text"]:focus,
+.edit-container input[type="email"]:focus,
+.edit-container input[type="tel"]:focus {
+    border-color: blueviolet;
+    box-shadow: 0 0 5px rgba(138, 43, 226, 0.3);
+}
+
+.gender-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.gender-box label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: Cambria, serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.gender-box input[type="radio"] {
+    cursor: pointer;
+}
+
+.edit-container button {
+    width: 100%;
+    padding: 11px;
+    margin-top: 5px;
+    background: #ff7043;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.edit-container button:hover {
+    background: orangered;
+    transform: translateY(-2px);
+}
+
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 9px 16px;
+    background: #263238;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #111;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    .edit-container {
+        width: 420px;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+        align-items: flex-start;
+        padding-top: 70px;
+    }
+
+    .edit-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px 15px;
+        border-radius: 12px;
+    }
+
+    .edit-container h2 {
+        font-size: 24px;
+        margin-bottom: 18px;
+    }
+
+    .edit-container input[type="text"],
+    .edit-container input[type="email"],
+    .edit-container input[type="tel"] {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .back-btn {
+        top: 12px;
+        left: 12px;
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+
+    .edit-container button {
+        padding: 11px;
+        font-size: 14px;
+    }
+}
+

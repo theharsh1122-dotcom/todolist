@@ -1,0 +1,240 @@
+<<<<<<< HEAD
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+=======
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background:#78a8f1;
+>>>>>>> 8ecd669587ab1381eeb278c21d72d42763fa0744
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+<<<<<<< HEAD
+    background: linear-gradient(135deg, #BD289F, #7157C7, #20C9C9);
+}
+
+.register-container {
+    width: 450px;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px #0004;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin: 8px 0 4px;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+input[type="radio"] {
+    margin: 10px 4px 15px 0;
+}
+
+button {
+    width: 100%;
+    padding: 11px;
+    border: 0;
+    border-radius: 6px;
+    background: #0059ff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0010f6;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 18px;
+}
+
+.login-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+.success{
+   color: rgb(1, 160, 1);
+   text-align: center;
+}
+
+.error {
+    color: red;
+    text-align: center;
+}
+@media (max-width: 768px) {
+
+    .register-container {
+        width: 85%;
+        max-width: 450px;
+        padding: 25px 20px;
+    }
+
+    .register-container h1 {
+        font-size: 26px;
+        text-align: center;
+    }
+
+    .register-container label {
+        font-size: 14px;
+    }
+
+    .register-container input[type="text"],
+    .register-container input[type="email"],
+    .register-container input[type="tel"],
+    .register-container input[type="password"] {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .register-container input[type="radio"] {
+        width: auto;
+        margin-right: 4px;
+    }
+
+    .register-container button {
+        width: 100%;
+        padding: 11px;
+        font-size: 14px;
+    }
+
+    .login-link {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .error {
+        font-size: 13px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .register-container {
+        width: 90%;
+        padding: 20px 15px;
+    }
+
+    .register-container h1 {
+        font-size: 22px;
+    }
+
+    .register-container label {
+        font-size: 13px;
+    }
+
+    .register-container input[type="text"],
+    .register-container input[type="email"],
+    .register-container input[type="tel"],
+    .register-container input[type="password"] {
+        padding: 9px;
+        font-size: 13px;
+    }
+
+    .register-container button {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .login-link {
+        font-size: 13px;
+    }
+}
+=======
+}
+
+.register-container{
+    width: 350px;
+    background: white;
+    padding: 35px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.register-container h1{
+    font-family: Cambria;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.register-container input{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: 15px;
+    outline: none;
+}
+ .register-container button{
+    width: 100%;
+    padding: 12px;
+    background: rgb(0, 89, 255);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+ }
+ .register-container button:hover{
+    background-color: #0010f6;
+ }
+
+ .register-container p{
+    text-align: center;
+    color: red;
+    margin-bottom: 15px;
+    font-size: 14px;
+ }
+
+ .login-link{
+    text-align: center;
+    margin-top: 15px;
+ }
+
+ .login-link a{
+    color: #007bff;
+    text-decoration: none;
+ }
+ .login-link:hover{
+    text-decoration: underline;
+ }
+>>>>>>> 8ecd669587ab1381eeb278c21d72d42763fa0744
