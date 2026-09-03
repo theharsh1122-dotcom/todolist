@@ -9,44 +9,43 @@ if (isset($_POST['register'])) {
     $phone = $_POST['phone'];
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $repassword = $_POST['repassword'];
     $gender = $_POST['gender'];
 
-    $check = "SELECT * FROM users  WHERE username='$username'  OR email='$email'  OR phone='$phone'";
+    if ($password != $repassword) {
 
-    $result = mysqli_query($conn, $check);
-
-    if (mysqli_num_rows($result) > 0) {
-
-        $error = "User already registered ";
+        $error = "Passwords do not match!";
 
     } else {
 
-        $query = "INSERT INTO users 
-        (first_name, last_name, email, phone, username, password, gender)
-        VALUES
-        ('$first_name', '$last_name', '$email', '$phone', '$username', '$password', '$gender')";
+        $check = "SELECT * FROM users 
+                  WHERE username='$username' 
+                  OR email='$email' 
+                  OR phone='$phone'";
 
- if (mysqli_query($conn, $query)) {
-   header("Location: login.php");
-     exit();
- } else {
-            $error = "Account not created!";
-             }
- }
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+        $result = mysqli_query($conn, $check);
 
-    $query = "INSERT INTO users (username, password)
-              VALUES ('$username', '$password')";
+        if (mysqli_num_rows($result) > 0) {
 
-    if (mysqli_query($conn, $query)) {
+            $error = "User already registered!";
 
-        header("Location: login.php");
-        exit();
+        } else {
 
-    } else {
+            $query = "INSERT INTO users
+            (first_name, last_name, email, phone, username, password, gender)
+            VALUES
+            ('$first_name', '$last_name', '$email', '$phone', '$username', '$password', '$gender')";
 
-        $error = "Account create nahi hua: " . mysqli_error($conn);
+            if (mysqli_query($conn, $query)) {
+
+                header("Location: login.php");
+                exit();
+
+            } else {
+
+                $error = "Account not created!";
+            }
+        }
     }
 }
 ?>
@@ -76,40 +75,68 @@ if (isset($_POST['register'])) {
     ?>
 
     <form method="POST">
-         <label>First Name</label>
-        <input type="text" name="first_name" placeholder="Enter First Name"required>
-        
+
+        <label>First Name</label>
+        <input
+            type="text"
+            name="first_name"
+            placeholder="Enter First Name"
+            required
+        >
+
         <label>Last Name</label>
-        <input type="text" name="last_name" placeholder="Enter Last Name" required>
-        
+        <input
+            type="text"
+            name="last_name"
+            placeholder="Enter Last Name"
+            required
+        >
+
         <label>Email-Id</label>
-        <input type="email" name="email" placeholder="Enter Email" required>
-        
+        <input
+            type="email"
+            name="email"
+            placeholder="Enter Email"
+            required
+        >
+
         <label>Phone-No</label>
-        <input type="tel" name="phone" placeholder="Enter Phone Number" required>
-        
+        <input
+            type="tel"
+            name="phone"
+            placeholder="Enter Phone Number"
+            required
+        >
+
         <label>Username</label>
-        <input type="text" name="username" placeholder="Enter Username" required>
-    
+        <input
+            type="text"
+            name="username"
+            placeholder="Enter Username"
+            required
+        >
+
         <label>Password</label>
-        <input type="password" name="password"placeholder="Enter Password" required>
-       <label>Gender</label>
-       <input type="radio" name="gender" value="Male" required>Male
-       <input type="radio" name="gender" value="Female">Female
-       <input type="radio" name="gender" value="Other">Other
-    
-       <button type="submit" name="register">
-            Create Account
-        </button>
-    </form>
-    <p class="login-link">
-        Already have an account!
+        <input
+            type="password"
+            name="password"
+            placeholder="Enter Password"
+            required
+        >
 
-        <input type="text" name="username"
-               placeholder="Enter the username" required>
+        <label>Re-enter Password</label>
+        <input
+            type="password"
+            name="repassword"
+            placeholder="Re-enter Password"
+            required
+        >
 
-        <input type="password" name="password"
-               placeholder="Enter the password" required>
+        <label>Gender</label>
+
+        <input type="radio" name="gender" value="Male" required> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <input type="radio" name="gender" value="Other"> Other
 
         <button type="submit" name="register">
             Create Account
@@ -119,7 +146,6 @@ if (isset($_POST['register'])) {
 
     <p class="login-link">
         Already have an account?
-
         <a href="login.php">Login</a>
     </p>
 

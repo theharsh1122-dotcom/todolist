@@ -7,7 +7,7 @@
 body {
     min-height: 100vh;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #80ea66, #764ba2);
+    background: linear-gradient(#ee691d, orange);
     color: #222;
     padding: 40px 20px;
 }
@@ -98,7 +98,6 @@ body {
     text-decoration: none;
     font-size: 14px;
     font-weight: bold;
-    transition: 0.3s ease;
 }
 
 .dashboard-btn {
@@ -107,8 +106,8 @@ body {
 }
 
 .dashboard-btn:hover {
-    background: #455a64;
-    transform: translateY(-2px);
+    background:  hsl(34, 96%, 51%);
+    border: 1px solid black;
 }
 
 .logout-btn {

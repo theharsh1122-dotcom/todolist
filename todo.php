@@ -16,7 +16,7 @@ $result = mysqli_query($conn, "SELECT * FROM tasks ORDER BY id DESC");
 <head>
     <title>To-Do List</title>
     <link rel="icon" type="image/png" href="assets/todo.png">
-    <link rel="stylesheet" href="style.css?v2">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
