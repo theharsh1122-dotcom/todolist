@@ -1,6 +1,12 @@
 <?php
 session_start();
-include "database.php";
+include "../config/database.php";
+
+if (!isset ($_SESSION['username'])){
+    header("Location: ../auth/login.php");
+exit();
+}
+$user_type = $_SESSION['user_type'];
 
 $user_result = mysqli_query($conn, "SELECT COUNT(*) AS total FROM users");
 $user_data = mysqli_fetch_assoc($user_result);
@@ -24,7 +30,7 @@ $completed_todos = $completed_data['total'];
 
     <title>Dashboard</title>
 
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="../assets/dashboard.css">
 </head>
 
 <body>
@@ -67,15 +73,17 @@ $completed_todos = $completed_data['total'];
 
 <div class="dashboard-buttons">
 
-    <a href="todo.php" class="dashboard-btn">
+    <a href="../profile/profile.php" class="dashboard-btn">Edit profile</a>
+
+    <a href="../todos/todo.php" class="dashboard-btn">
         Todo List
     </a>
-
-    <a href="users.php" class="dashboard-btn">
+     <?php if ($user_type == 'admin'){?>
+    <a href="../users/users.php" class="dashboard-btn">
         All Users
     </a>
-
-    <a href="logout.php" class="logout-btn">
+<?php }?>
+    <a href="../auth/logout.php" class="logout-btn">
         Logout
     </a>
 

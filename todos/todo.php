@@ -2,11 +2,11 @@
 session_start();
 
 if (!isset($_SESSION['username'])) {
-    header("Location: login.php");
+    header("Location: ../auth/login.php");
     exit();
 }
 
-include "database.php";
+include "../config/database.php";
 
 $result = mysqli_query($conn, "SELECT * FROM tasks ORDER BY id DESC");
 ?>
@@ -15,23 +15,22 @@ $result = mysqli_query($conn, "SELECT * FROM tasks ORDER BY id DESC");
 <html>
 <head>
     <title>To-Do List</title>
-    <link rel="icon" type="image/png" href="assets/todo.png">
-    <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="../assets/style.css">
 </head>
 
 <body>
     
     <div class="top-bar">
-         <a href="logout.php" class="logout-btn">Logout</a>
-        <a href="users.php" class="users-btn">View Users</a>
-        <a href="dashboard.php" class="dashboard-btn">Dashboard</a>
+         <a href="../auth/logout.php" class="logout-btn">Logout</a>
+        <a href="../users/users.php" class="users-btn">View Users</a>
+        <a href="../dashboard/dashboard.php" class="dashboard-btn">Dashboard</a>
     </div>
 <div class="container">
 
 <h1> Todo List</h1>
 
 
-<form action="addd.php" method="POST">
+<form action="../todos/addd.php" method="POST">
     <input type="text" name="task" placeholder="Enter your task" required>
     <button type="submit">Add Task</button>
 </form>
@@ -51,15 +50,15 @@ $result = mysqli_query($conn, "SELECT * FROM tasks ORDER BY id DESC");
         <?php } else { ?>
 
             <a class="complete-btn"
-               href="completed.php?id=<?php echo $row['id']; ?>">
+               href="../todos/completed.php?id=<?php echo $row['id']; ?>">
                 Complete
             </a>
     
 
         <?php } ?>
-        <a class="edit-btn" href="edit.php?id=<?php echo $row['id']; ?>">Edit</a>
+        <a class="edit-btn" href="../todos/edit.php?id=<?php echo $row['id']; ?>">Edit</a>
 
-        <a class="delete-btn"href="deleted.php?id=<?php echo $row['id']; ?>">Delete </a>
+        <a class="delete-btn"href="../todos/deleted.php?id=<?php echo $row['id']; ?>">Delete </a>
     </span>
 
 </p>

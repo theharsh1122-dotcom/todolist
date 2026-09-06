@@ -1,5 +1,5 @@
 <?php
-include "database.php";
+include "../config/database.php";
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -16,7 +16,7 @@ if (isset($_POST['update'])) {
     $query = "UPDATE tasks SET task='$task' WHERE id=$id";
 
     if (mysqli_query($conn, $query)) {
-        header("Location: todo.php");
+        header("Location: ../todos/todo.php");
         exit();
     } else {
         echo "Update failed: " . mysqli_error($conn);
@@ -30,12 +30,12 @@ if (isset($_POST['update'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Task</title>
-    <link rel="stylesheet" href="edit.css">
+    <link rel="stylesheet" href="../assets/edit.css">
 </head>
 <body>
-    <h2>Edit Task</h2>
+   
     <form method="POST">
-
+     <h2>Edit Task</h2>
     <input type="hidden" name="id" value="<?php echo $task['id']; ?>">
     <input type="text" name="task" value="<?php echo htmlspecialchars($task['task']);?>" required>
     <button type="Submit" name="update">Update Task</button>

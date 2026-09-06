@@ -1,5 +1,15 @@
 <?php
-include "database.php";
+session_start();
+if (!isset ($_SESSION['username'])){
+    header("Location: ../auth/login.php");
+    exit();
+}
+
+if ($_SESSION['user_type'] != 'admin'){
+    header("Location: ../dashboard/dashboard.php");
+    exit();
+}
+include "../config/database.php";
 
 $sql = "SELECT id, first_name, last_name, email, username, phone, gender
         FROM users
@@ -14,7 +24,7 @@ $total = mysqli_fetch_assoc($total_result)['total'];
 <html>
 <head>
     <title>All Users</title>
-    <link rel="stylesheet" href="users.css">
+    <link rel="stylesheet" href="../assets/users.css">
 </head>
 
 <body>
@@ -75,8 +85,8 @@ $total = mysqli_fetch_assoc($total_result)['total'];
                 </td>
 
                 <td>
-                    <a href="user_edit.php?id=<?php echo $row['id']; ?>">✏️</a>
-                    <a href="user_delete.php?id=<?php echo $row['id']; ?>">🗑</a>
+                    <a href="../users/user_edit.php?id=<?php echo $row['id']; ?>">✏️</a>
+                    <a href="../users/user_delete.php?id=<?php echo $row['id']; ?>">🗑</a>
                 </td>
             </tr>
 
@@ -96,7 +106,7 @@ $total = mysqli_fetch_assoc($total_result)['total'];
 
     </table>
 
-    <a href="todo.php" class="back-btn">Back</a>
+    <a href="../todos/todo.php" class="back-btn">Back</a>
 
 </div>
 

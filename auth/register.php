@@ -1,5 +1,5 @@
 <?php
-include "database.php";
+include "../config/database.php";
 
 if (isset($_POST['register'])) {
 
@@ -38,7 +38,7 @@ if (isset($_POST['register'])) {
 
             if (mysqli_query($conn, $query)) {
 
-                header("Location: login.php");
+                header("Location: ../auth/login.php");
                 exit();
 
             } else {
@@ -59,7 +59,7 @@ if (isset($_POST['register'])) {
 
     <title>Create Account</title>
 
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="../assets/register.css">
 </head>
 
 <body>
@@ -146,7 +146,7 @@ if (isset($_POST['register'])) {
 
     <p class="login-link">
         Already have an account?
-        <a href="login.php">Login</a>
+        <a href="../auth/login.php">Login</a>
     </p>
 
 </div>

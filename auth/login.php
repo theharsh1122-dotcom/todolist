@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "database.php";
+include "../config/database.php";
 
 if (isset($_POST['login'])) {
 
@@ -19,8 +19,9 @@ if (mysqli_num_rows($result) == 1) {
 
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
+        $_SESSION['user_type']=$user['user_type'];
 
-        header("Location: dashboard.php");
+        header("Location: ../dashboard/dashboard.php");
         exit();
 
     } else {
@@ -44,7 +45,7 @@ if (mysqli_num_rows($result) == 1) {
 
     <title>Login Todo List</title>
 
-<link rel="stylesheet" href="login.css">
+<link rel="stylesheet" href="../assets/login.css">
 </head>
 
 <body>

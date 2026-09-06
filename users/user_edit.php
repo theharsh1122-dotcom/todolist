@@ -1,15 +1,25 @@
 
 <?php
-include "database.php";
+session_start();
+if (!isset($_SESSION['username'])){
+    header ("Location: ../auth/login.php");
+    exit();
+}
+
+if($_SESSION['user_type'] != 'admin'){
+    header("Location: ../dashboard/dashboard.php");
+    exit();
+}
+
+include "../config/database.php";
 
 if (!isset($_GET['id'])) {
-    header("Location: users.php");
+    header("Location: ../users/users.php");
     exit();
 }
 
 $id = $_GET['id'];
 
-/* User ki current details lana */
 $result = mysqli_query($conn, "SELECT * FROM users WHERE id=$id");
 
 if (mysqli_num_rows($result) == 0) {
@@ -19,8 +29,6 @@ if (mysqli_num_rows($result) == 0) {
 
 $user = mysqli_fetch_assoc($result);
 
-
-/* Update User */
 if (isset($_POST['update'])) {
 
     $first_name = $_POST['first_name'];
@@ -29,6 +37,7 @@ if (isset($_POST['update'])) {
     $phone = $_POST['phone'];
     $username = $_POST['username'];
     $gender = $_POST['gender'];
+    $user_type= $_POST['user_type'];
 
     $query = "UPDATE users SET
         first_name='$first_name',
@@ -36,12 +45,13 @@ if (isset($_POST['update'])) {
         email='$email',
         phone='$phone',
         username='$username',
-        gender='$gender'
+        gender='$gender',
+        user_type='$user_type'
         WHERE id=$id";
 
     if (mysqli_query($conn, $query)) {
 
-        header("Location: users.php");
+        header("Location: ../users/users.php");
         exit();
 
     } else {
@@ -60,7 +70,7 @@ if (isset($_POST['update'])) {
 
     <title>Edit User</title>
 
-    <link rel="stylesheet" href="user_edit.css">
+    <link rel="stylesheet" href="../assets/user_edit.css">
 </head>
 
 <body>
@@ -104,9 +114,7 @@ if (isset($_POST['update'])) {
         >
 
         <label>Username</label>
-        <input
-            type="text"
-            name="username"
+        <input type="text" name="username"
             value="<?php echo htmlspecialchars($user['username']); ?>"
             required
         >
@@ -116,36 +124,50 @@ if (isset($_POST['update'])) {
         <div class="gender-box">
 
             <label>
-                <input
-                    type="radio"
-                    name="gender"
-                    value="Male"
-                    <?php if ($user['gender'] == "Male") echo "checked"; ?>
-                >
+                <input type="radio" name="gender" value="Male"
+                    <?php if ($user['gender'] == "Male") echo "checked"; ?>>
                 Male
             </label>
 
             <label>
-                <input
-                    type="radio"
-                    name="gender"
-                    value="Female"
-                    <?php if ($user['gender'] == "Female") echo "checked"; ?>
-                >
+                <input type="radio" name="gender" value="Female"
+                 <?php if ($user['gender'] == "Female") echo "checked"; ?>>
                 Female
             </label>
 
             <label>
-                <input
-                    type="radio"
-                    name="gender"
-                    value="Other"
-                    <?php if ($user['gender'] == "Other") echo "checked"; ?>
-                >
+               <input type="radio" name="gender" value="Other"
+                 <?php if ($user['gender'] == "Other") echo "checked"; ?>>
                 Other
             </label>
 
         </div>
+
+    <label>User Type</label>
+
+<select name="user_type" required>
+
+    <option value="admin" <?php if ($user['user_type'] == "admin") echo "selected"; ?>>
+        Admin
+    </option>
+
+    <option value="user" <?php if ($user['user_type'] == "user") echo "selected"; ?>>
+        User
+    </option>
+
+    <option value="customer" <?php if ($user['user_type'] == "customer") echo "selected"; ?>>
+        Customer
+    </option>
+
+    <option value="manager" <?php if ($user['user_type'] == "manager") echo "selected"; ?>>
+        Manager
+    </option>
+
+    <option value="client" <?php if ($user['user_type'] == "client") echo "selected"; ?>>
+        Client
+    </option>
+
+</select>
 
         <button type="submit" name="update">
             Update User
@@ -153,7 +175,7 @@ if (isset($_POST['update'])) {
 
     </form>
 
-    <a href="users.php" class="back-btn">
+    <a href="../users/users.php" class="back-btn">
         Back
     </a>
 
