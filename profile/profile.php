@@ -125,7 +125,6 @@ if (isset($_POST['update'])) {
 
     </form>
 
-    <a href="../dashboard/dashboard.php">Back to Dashboard</a>
 
 </div>
 

@@ -15,16 +15,58 @@ $result = mysqli_query($conn, "SELECT * FROM tasks ORDER BY id DESC");
 <html>
 <head>
     <title>To-Do List</title>
-   <link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/style.css">
 </head>
 
 <body>
-    
-    <div class="top-bar">
-         <a href="../auth/logout.php" class="logout-btn">Logout</a>
-        <a href="../users/users.php" class="users-btn">View Users</a>
-        <a href="../dashboard/dashboard.php" class="dashboard-btn">Dashboard</a>
+    <input type="checkbox" id="todo-menu-toggle">
+
+<label for="todo-menu-toggle" class="todo-menu-button">☰</label>
+
+<div class="todo-side-menu">
+    <h2>Todo List</h2>
+
+    <a href="../dashboard/dashboard.php">Dashboard</a>
+    <a href="todo.php">Todo List</a>
+    <a href="../profile/profile.php">My Profile</a>
+    <a href="../auth/logout.php">Logout</a>
+</div>
+
+<details class="todo-profile-menu">
+    <summary class="todo-profile-button">
+
+        <?php
+        $user_id = $_SESSION['user_id'];
+
+        $user_result = mysqli_query(
+            $conn,
+            "SELECT first_name, profile_photo FROM users WHERE id=$user_id"
+        );
+
+        $user = mysqli_fetch_assoc($user_result);
+        ?>
+
+        <?php if (!empty($user['profile_photo'])) { ?>
+
+            <img src="../uploads/<?php echo htmlspecialchars($user['profile_photo']); ?>">
+
+        <?php } else { ?>
+
+            <div class="todo-default-avatar">
+                <?php echo strtoupper(substr($user['first_name'], 0, 1)); ?>
+            </div>
+
+        <?php } ?>
+
+        <span><?php echo htmlspecialchars($user['first_name']); ?></span>
+
+    </summary>
+
+    <div class="todo-profile-dropdown">
+        <a href="../profile/profile.php">Edit Profile</a>
+        <a href="../auth/logout.php">Logout</a>
     </div>
+</details>
 <div class="container">
 
 <h1> Todo List</h1>

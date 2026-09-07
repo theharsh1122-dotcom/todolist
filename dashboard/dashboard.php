@@ -35,18 +35,71 @@ $completed_todos = $completed_data['total'];
 
 <body>
 
+<input type="checkbox" id="menu-toggle">
+
+<label for="menu-toggle" class="menu-button">☰</label>
+
+<div class="side-menu">
+    <h2>Dashboard</h2>
+    <a href="../todos/todo.php">Todo List</a>
+
+    <?php if ($_SESSION['user_type'] === 'admin') { ?>
+        <a href="../users/users.php">Users</a>
+    <?php } ?>
+
+</div>
     <div class="dashboard-container">
 
         <div class="dashboard-header">
 
             <h1>Dashboard</h1>
 
-            <p>
+        </div>
+        <div class="date">
+               <p>
                 <?php echo date("l, F d"); ?>
             </p>
-
         </div>
+        <details class="profile-menu">
 
+    <summary class="profile-button">
+
+        <?php
+        $user_id = $_SESSION['user_id'];
+
+        $user_result = mysqli_query(
+            $conn,
+            "SELECT first_name, profile_photo FROM users WHERE id=$user_id"
+        );
+
+        $user = mysqli_fetch_assoc($user_result);
+        ?>
+
+        <?php if (!empty($user['profile_photo'])) { ?>
+
+            <img src="../uploads/<?php echo htmlspecialchars($user['profile_photo']); ?>">
+
+        <?php } else { ?>
+
+            <div class="default-avatar">
+                <?php echo strtoupper(substr($user['first_name'], 0, 1)); ?>
+            </div>
+
+        <?php } ?>
+
+        <span><?php echo htmlspecialchars($user['first_name']); ?></span>
+
+    </summary>
+
+    <div class="profile-dropdown">
+
+        <a href="../profile/profile.php">Edit Profile</a>
+
+        <a href="../auth/logout.php">Logout</a>
+
+    </div>
+
+</details>
 <div class="stats-container">
 
     <div class="stat-box">
@@ -68,24 +121,6 @@ $completed_todos = $completed_data['total'];
         </div>
         
     </div>
-
-</div>
-
-<div class="dashboard-buttons">
-
-    <a href="../profile/profile.php" class="dashboard-btn">Edit profile</a>
-
-    <a href="../todos/todo.php" class="dashboard-btn">
-        Todo List
-    </a>
-     <?php if ($user_type == 'admin'){?>
-    <a href="../users/users.php" class="dashboard-btn">
-        All Users
-    </a>
-<?php }?>
-    <a href="../auth/logout.php" class="logout-btn">
-        Logout
-    </a>
 
 </div>
 
