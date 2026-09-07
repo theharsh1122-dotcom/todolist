@@ -27,6 +27,7 @@ $result = mysqli_query($conn, "SELECT * FROM tasks ORDER BY id DESC");
     <h2>Todo List</h2>
 
     <a href="../dashboard/dashboard.php">Dashboard</a>
+    <a href="../users/users.php">All users</a>
     <a href="todo.php">Todo List</a>
     <a href="../profile/profile.php">My Profile</a>
     <a href="../auth/logout.php">Logout</a>
