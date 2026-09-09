@@ -5,8 +5,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-
-    background:  linear-gradient(135deg,#ee691d, orange);
+    background: linear-gradient(135deg, #160b2b, #4b176d, #7d2bbd);
 }
 
 .register-container {

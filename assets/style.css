@@ -8,7 +8,7 @@
 body {
     margin: 0;
     min-height: 100vh;
-    background: linear-gradient(135deg,#ee691d, orange);
+    background: linear-gradient(135deg, #160b2b, #4b176d, #7d2bbd);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -23,7 +23,7 @@ body {
     max-width: 90%;
     padding: 30px;
     border-radius: 15px;
-    background:#4A148C;
+    background: rgb(6, 226, 179);
     backdrop-filter: blur(8px);
 }
 
@@ -134,7 +134,7 @@ p:hover {
     top: 20px;
     left: 20px;
     font-size: 28px;
-    color: white;
+    color: rgb(139, 213, 231);
     cursor: pointer;
     z-index: 1002;
 }
@@ -145,7 +145,7 @@ p:hover {
     left: -250px;
     width: 230px;
     height: 100vh;
-    background: #24113f;
+    background: #ffffff;
     padding-top: 70px;
     box-sizing: border-box;
     transition: 0.3s;
@@ -157,7 +157,7 @@ p:hover {
 }
 
 .todo-side-menu h2 {
-    color: white;
+    color: rgb(3, 3, 3);
     text-align: center;
     margin-bottom: 30px;
 }
@@ -165,13 +165,13 @@ p:hover {
 .todo-side-menu a {
     display: block;
     padding: 14px 30px;
-    color: white;
+    color: rgb(12, 12, 12);
     text-decoration: none;
     font-family: Arial, sans-serif;
 }
 
 .todo-side-menu a:hover {
-    background: #4d1590;
+    background: #d0b5f0;
 }
 
 #todo-menu-toggle:checked ~ .todo-side-menu {

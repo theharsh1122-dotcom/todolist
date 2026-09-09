@@ -7,7 +7,7 @@
 body {
     min-height: 100vh;
     font-family: Arial, sans-serif;
-    background: linear-gradient(#ee691d, orange);
+    background:linear-gradient(135deg, #160b2b, #4b176d, #7d2bbd);
     color: #222;
     padding: 40px 20px;
 }
@@ -35,12 +35,12 @@ body {
     margin-left: 500px;
     font-family: Georgia, serif;
     font-size: 44px;
-    color: #222;
+    color: #fdfcfc;
 }
 
 .date p {
     font-size: 17px;
-    color:black;
+    color:rgb(255, 250, 250);
     text-align: center;
     margin-top: 30px;
 }
@@ -100,7 +100,7 @@ body {
     font-size: 28px;
     cursor: pointer;
     z-index: 1001;
-    color: white;
+    color: rgb(139, 213, 231);
 }
 
 .side-menu {
@@ -109,27 +109,27 @@ body {
     left: -250px;
     width: 230px;
     height: 100vh;
-    background: #24113f;
+    background: #ffffff;
     padding-top: 70px;
     transition: 0.3s;
     z-index: 1000;
 }
 
 .side-menu h2 {
-    color: white;
+    color: rgb(0, 0, 0);
     text-align:center;
     margin-bottom: 30px;
 }
 
 .side-menu a {
     display: block;
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     padding: 14px 30px;
 }
 
 .side-menu a:hover {
-    background: #4d1590;
+    background: #d0b5f0;
 }
 
 #menu-toggle:checked ~ .side-menu {
@@ -137,7 +137,7 @@ body {
 }
 
 .dashboard-menu a:hover {
-    background: #4d1590;
+    background: #b897e0;
 }
 
 .profile-menu {

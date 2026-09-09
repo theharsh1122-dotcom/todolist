@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 50px 20px;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #160b2b, #4b176d, #7d2bbd);
+}
+
+.student-container {
+    width: 650px;
+    max-width: 100%;
+    margin: auto;
+    padding: 35px 45px;
+    background: rgba(255, 255, 255, 0.13);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(12px);
+}
+
+.student-container h1 {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.student-container form {
+    display: block;
+}
+
+.student-container label {
+    display: block;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.student-container input[type="text"],
+.student-container input[type="email"],
+.student-container input[type="tel"],
+.student-container input[type="date"],
+.student-container select,
+.student-container textarea {
+    width: 100%;
+    padding: 13px 15px;
+    margin-bottom: 18px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    outline: none;
+    background: #f8f7fa;
+    color: #24113f;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.student-container input:focus,
+.student-container select:focus,
+.student-container textarea:focus {
+    border-color: #ff4054;
+    box-shadow: 0 0 0 3px rgba(255, 64, 84, 0.15);
+}
+
+.student-container textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.student-container select {
+    cursor: pointer;
+}
+
+.student-container input[type="radio"] {
+    width: auto;
+    margin: 0 6px 20px 0;
+    accent-color: #ff4054;
+    cursor: pointer;
+}
+
+.student-container input[type="radio"] + * {
+    color: white;
+}
+
+.student-container button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 10px;
+    background: #ff4054;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.student-container button:hover {
+    background: #e52d42;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 64, 84, 0.3);
+}
+
+.error {
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    text-align: center;
+    background: #ff4054;
+    color: white;
+}
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 25px 12px;
+    }
+
+    .student-container {
+        padding: 25px 20px;
+    }
+
+    .student-container h1 {
+        font-size: 25px;
+    }
+}
