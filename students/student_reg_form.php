@@ -95,7 +95,7 @@ if (isset($_POST['register'])) {
             <option value="College">College</option>
         </select>
 
-        <label>Class / Course</label>
+         <label>Class / Course</label>
         <input type="text" name="class_course" placeholder="Enter Class or Course" required>
 
         <button type="submit" name="register">
