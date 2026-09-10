@@ -39,10 +39,8 @@ if (!$result) {
     </div>
 
     <div class="table-container">
-
         <table>
-
-            <thead>
+           <thead>
                 <tr>
                     <th>Sr. No.</th>
                     <th>Form No</th>
