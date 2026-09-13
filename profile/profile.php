@@ -72,7 +72,7 @@ if (isset($_POST['update'])) {
 <html>
 <head>
     <title>My Profile</title>
-    <link rel="stylesheet" href="../assets/profile.css">
+    <link rel="stylesheet" href="../assets/css/profile.css">
 </head>
 
 <body>
@@ -127,6 +127,6 @@ if (isset($_POST['update'])) {
 
 
 </div>
-
+  <a href="../dashboard/dashboard.php" class="back-btn">Back</a>
 </body>
 </html>

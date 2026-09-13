@@ -45,7 +45,7 @@ if (mysqli_num_rows($result) == 1) {
 
     <title>Login Todo List</title>
 
-<link rel="stylesheet" href="../assets/login.css">
+<link rel="stylesheet" href="../assets/css/login.css">
 </head>
 
 <body>

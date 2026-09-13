@@ -24,7 +24,7 @@ $total = mysqli_fetch_assoc($total_result)['total'];
 <html>
 <head>
     <title>All Users</title>
-    <link rel="stylesheet" href="../assets/users.css">
+    <link rel="stylesheet" href="../assets/css/users.css">
 </head>
 
 <body>

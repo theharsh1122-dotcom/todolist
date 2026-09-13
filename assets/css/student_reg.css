@@ -116,6 +116,21 @@ body {
     color: white;
 }
 
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background: #9c6ed8;
+    color: black;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.back-btn:hover {
+    background: #080ce0;
+}
+
 @media (max-width: 600px) {
 
     body {

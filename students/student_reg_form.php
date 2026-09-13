@@ -23,7 +23,7 @@ if (isset($_POST['register'])) {
 
     if (mysqli_query($conn, $query)) {
 
-        header("Location: student.php");
+        header("Location: records.php");
         exit();
 
     } else {
@@ -103,8 +103,8 @@ if (isset($_POST['register'])) {
         </button>
 
     </form>
-
+         
 </div>
-
+  <a href="../dashboard/dashboard.php" class="back-btn" >Back</a>
 </body>
 </html>

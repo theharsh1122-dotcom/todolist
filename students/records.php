@@ -27,7 +27,7 @@ if (!$result) {
 
     <title>Students</title>
 
-    <link rel="stylesheet" href="../assets/css/student.css">
+    <link rel="stylesheet" href="../assets/css/records.css">
 </head>
 
 <body>
@@ -120,7 +120,7 @@ if (!$result) {
     </div>
 
 </div>
-
+   <a href="../students/records.php" class="back-btn">Back</a>
 </body>
 
 </html>

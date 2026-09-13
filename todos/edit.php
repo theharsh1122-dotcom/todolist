@@ -30,7 +30,7 @@ if (isset($_POST['update'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Task</title>
-    <link rel="stylesheet" href="../assets/edit.css">
+    <link rel="stylesheet" href="../assets/css/edit.css">
 </head>
 <body>
    

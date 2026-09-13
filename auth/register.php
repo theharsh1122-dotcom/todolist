@@ -59,7 +59,7 @@ if (isset($_POST['register'])) {
 
     <title>Create Account</title>
 
-    <link rel="stylesheet" href="../assets/register.css">
+    <link rel="stylesheet" href="../assets/css/register.css">
 </head>
 
 <body>

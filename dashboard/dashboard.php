@@ -30,7 +30,7 @@ $completed_todos = $completed_data['total'];
 
     <title>Dashboard</title>
 
-    <link rel="stylesheet" href="../assets/dashboard.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
 </head>
 
 <body>
@@ -41,11 +41,18 @@ $completed_todos = $completed_data['total'];
 
 <div class="side-menu">
     <h2>Dashboard</h2>
-    <a href="../todos/todo.php">Todo List</a>
+    <a href="../todos/todo.php">Todo List 📋</a>
 
     <?php if ($_SESSION['user_type'] === 'admin') { ?>
-        <a href="../users/users.php">Users</a>
+        <a href="../users/users.php">Users 👥 </a>
     <?php } ?>
+
+     <a href="../students/student_reg_form.php">Student Registraion 🧑‍🎓</a>
+     
+    <?php if ($_SESSION['user_type'] === 'admin') { ?>
+        <a href="../students/records.php">Student Records 🧾</a>
+    <?php } ?>
+    <a href="../courses/course.php">Course 📚</a>
 
 </div>
     <div class="dashboard-container">

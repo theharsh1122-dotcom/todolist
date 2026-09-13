@@ -111,3 +111,22 @@ button:hover {
 .profile-container > a:hover {
     text-decoration: underline;
 }
+
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 9px 16px;
+    background: #263238;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #111;
+    transform: translateY(-2px);
+}
