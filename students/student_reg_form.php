@@ -2,6 +2,8 @@
 
 include "../config/database.php";
 
+$course_result = mysqli_query($conn, "SELECT id, course_name, course_code FROM courses ORDER BY course_name ASC");
+
 if (isset($_POST['register'])) {
 
     $first_name = $_POST['first_name'];
@@ -13,22 +15,53 @@ if (isset($_POST['register'])) {
     $date_of_birth = $_POST['date_of_birth'];
     $gender = $_POST['gender'];
     $address = $_POST['address'];
+    $city = $_POST['city'];
+    $state = $_POST['state'];
+    $country = $_POST['country'];
     $student_type = $_POST['student_type'];
-    $class_course = $_POST['class_course'];
 
-    $query = "INSERT INTO students
-    (first_name, last_name, father_name, mother_name, email, phone, date_of_birth, gender, address, student_type, class_course)
-    VALUES
-    ('$first_name', '$last_name', '$father_name', '$mother_name', '$email', '$phone', '$date_of_birth', '$gender', '$address', '$student_type', '$class_course')";
+    if ($student_type == "School") {
 
-    if (mysqli_query($conn, $query)) {
-
-        header("Location: records.php");
-        exit();
+        $class_course = $_POST['class_name'];
 
     } else {
 
-        $error = "Student registration failed!";
+        $course_id = $_POST['course_id'];
+
+        $course_query = mysqli_query($conn, "SELECT course_name, course_code FROM courses WHERE id=$course_id");
+
+        $course_data = mysqli_fetch_assoc($course_query);
+
+        $class_course = $course_data['course_name'] . " - " . $course_data['course_code'];
+    }
+
+    $query = "INSERT INTO students
+    (first_name, last_name, father_name, mother_name, email, phone, date_of_birth, gender, student_type, class_course)
+    VALUES
+    ('$first_name', '$last_name', '$father_name', '$mother_name', '$email', '$phone', '$date_of_birth', '$gender', '$student_type', '$class_course')";
+
+    if (mysqli_query($conn, $query)) {
+
+        $student_id = mysqli_insert_id($conn);
+
+        $address_query = "INSERT INTO addresses
+        (student_id, address, city, state, country)
+        VALUES
+        ('$student_id', '$address', '$city', '$state', '$country')";
+
+        if (mysqli_query($conn, $address_query)) {
+
+            header("Location: records.php");
+            exit();
+
+        } else {
+
+            $error = "Address save failed: " . mysqli_error($conn);
+        }
+
+    } else {
+
+        $error = "Student registration failed: " . mysqli_error($conn);
     }
 }
 ?>
@@ -86,17 +119,59 @@ if (isset($_POST['register'])) {
 
         <label>Address</label>
         <textarea name="address" placeholder="Enter Address" required></textarea>
+        <label>City</label>
+        <input type="text" name="city" placeholder="Enter City" required>
 
-        <label>Student Type</label>
+        <label>State</label>
+        <input type="text" name="state" placeholder="Enter State" required>
 
-        <select name="student_type" required>
-            <option value="">Select Student Type</option>
-            <option value="School">School</option>
-            <option value="College">College</option>
-        </select>
+        <label>Country</label>
+        <input type="text" name="country" placeholder="Enter Country" required>
 
-         <label>Class / Course</label>
-        <input type="text" name="class_course" placeholder="Enter Class or Course" required>
+       <label>Student Type</label>
+       <select name="student_type" required>
+           <option value="">Select Student Type</option>
+           <option value="School">School</option>
+           <option value="College">College</option>
+       </select>
+
+       <div id="school-class">
+    <label>Class</label>
+
+    <select name="class_name">
+              <option value="">Select Class</option>
+        <option value="Nursery">Nursery</option>
+        <option value="LKG">LKG</option>
+        <option value="UKG">UKG</option>
+        <option value="1">Class 1</option>
+        <option value="2">Class 2</option>
+        <option value="3">Class 3</option>
+        <option value="4">Class 4</option>
+        <option value="5">Class 5</option>
+        <option value="6">Class 6</option>
+        <option value="7">Class 7</option>
+        <option value="8">Class 8</option>
+        <option value="9">Class 9</option>
+        <option value="10">Class 10</option>
+        <option value="11">Class 11</option>
+        <option value="12">Class 12</option>
+    </select>
+</div>
+
+<div id="college-course">
+    <label>Course</label>
+
+    <select name="course_id">
+        <option value="">Select Course</option>
+
+        <?php while ($course = mysqli_fetch_assoc($course_result)) { ?>
+            <option value="<?php echo $course['id']; ?>">
+                <?php echo $course['course_name'] . " - " . $course['course_code']; ?>
+            </option>
+        <?php } ?>
+
+    </select>
+</div>
 
         <button type="submit" name="register">
             Register Student

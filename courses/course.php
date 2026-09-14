@@ -1,11 +1,17 @@
 <?php
 session_start();
-include "../config/database.php";
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../auth/login.php");
     exit();
 }
+
+if ($_SESSION['user_type'] !== 'admin') {
+    header("Location: ../dashboard/dashboard.php");
+    exit();
+}
+
+include "../config/database.php";
 
 if (isset($_POST['add_course'])) {
 

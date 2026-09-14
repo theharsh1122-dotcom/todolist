@@ -5,128 +5,172 @@
 }
 
 body {
-    min-height: 100vh;
     font-family: Arial, sans-serif;
-    background: white;
-    padding: 40px;
+    background: #f4f6fb;
+    color: #222;
+    min-height: 100vh;
+    padding: 30px;
 }
 
 .student-page {
     width: 100%;
-    max-width: 1400px;
-    margin: auto;
 }
 
 .student-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
+    background: #4b2e83;
+    padding: 22px 25px;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
 }
 
 .student-header h1 {
-    color: black;
-    font-size: 32px;
-    margin-top: 50px;
+    color: white;
     text-align: center;
+    font-size: 28px;
 }
 
 .table-container {
     width: 100%;
     overflow-x: auto;
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    padding: 15px;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    margin-top: 35px;
+    background: white;
+    padding: 20px;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
 table {
     width: 100%;
     min-width: 1500px;
     border-collapse: collapse;
-    border: 2px solid #24113f;
 }
 
-th,
-td {
-    border: 1px solid #999;
-    padding: 12px 14px;
-    text-align: left;
-    font-size: 14px;
+thead {
+    background: #eee9f8;
 }
 
 th {
-    background: #24113f;
-    color: white;
-    border: 1px solid white;
+    padding: 14px 12px;
+    color: #3d286b;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    border-bottom: 2px solid #4b2e83;
 }
 
 td {
-    background: white;
-    border: 1px solid #999;
-}
-
-tr:hover td {
-    background: #f3f3f3;
-}
-
-tbody tr {
-    transition: 0.2s;
+    padding: 13px 12px;
+    font-size: 14px;
+    border-bottom: 1px solid #e5e5e5;
+    white-space: nowrap;
+    text-align: center;
 }
 
 tbody tr:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: #f8f6fc;
+}
+.edit-btn,
+.delete-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 36px;
+    margin: 3px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    transition: 0.2s;
 }
 
-tbody tr:last-child td {
-    border-bottom: none;
+.edit-btn {
+    background: #4b2e83;
+    color: white;
 }
 
-td:first-child {
-    font-weight: bold;
+.edit-btn:hover {
+    background: #372266;
+}
+
+.delete-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.delete-btn:hover {
+    background: #b02a37;
+}
+.no-data {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+    font-size: 16px;
 }
 
 .back-btn {
     position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    background: #000000;
-    color: rgb(252, 250, 250);
+    left: 25px;
+    bottom: 20px;
+    padding: 10px 22px;
+    background: #f56b2b;
+    color: black;
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: 7px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: 0.2s ease;
 }
 
 .back-btn:hover {
-    background: #ffffff;
-    color: #000000;
+    background: #e03a08;
+    color: white;
 }
 
-@media (max-width: 700px) {
+.table-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: #4b2e83;
+    border-radius: 10px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #eee;
+}
+
+@media (max-width: 768px) {
 
     body {
-        padding: 20px 10px;
+        padding: 15px;
     }
 
     .student-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
+        padding: 18px;
     }
 
     .student-header h1 {
-        font-size: 26px;
-    }
-
-    .add-student {
-        width: 100%;
-        text-align: center;
+        font-size: 23px;
     }
 
     .table-container {
+        padding: 12px;
+    }
+
+    th,
+    td {
         padding: 10px;
+    }
+
+    .action-btn {
+        padding: 7px 10px;
+        font-size: 12px;
+    }
+
+    .back-btn {
+        left: 15px;
+        bottom: 15px;
     }
 }

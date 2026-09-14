@@ -52,7 +52,10 @@ $completed_todos = $completed_data['total'];
     <?php if ($_SESSION['user_type'] === 'admin') { ?>
         <a href="../students/records.php">Student Records 🧾</a>
     <?php } ?>
-    <a href="../courses/course.php">Course 📚</a>
+
+    <?php if ($_SESSION['user_type'] === 'admin') { ?>
+     <a href="../courses/course.php">Course Management 📚</a>
+     <?php } ?>
 
 </div>
     <div class="dashboard-container">

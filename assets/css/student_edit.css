@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    min-height: 100vh;
+    padding: 30px 20px 80px;
+}
+
+.student-container {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2d1b69;
+    font-size: 30px;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 25px;
+}
+
+label {
+    font-size: 15px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: -10px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d5d5d5;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    background: #fff;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #5b3cc4;
+    box-shadow: 0 0 0 3px rgba(91, 60, 196, 0.12);
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.gender {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0;
+}
+
+.gender input {
+    width: auto;
+}
+
+button {
+    grid-column: 1 / -1;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: #4b2e83;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #372266;
+}
+
+.error {
+    text-align: center;
+    color: #d62828;
+    background: #ffe5e5;
+    padding: 10px;
+    border-radius: 7px;
+    margin-bottom: 20px;
+}
+
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background: #f56b2b;
+    color: black;
+    text-decoration: none;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    background: #e03a08;
+    color: white;
+}
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 20px 12px 80px;
+    }
+
+    .student-container {
+        padding: 25px 18px;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    button {
+        grid-column: auto;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .back-btn {
+        top: 10px;
+        left: 10px;
+    }
+}

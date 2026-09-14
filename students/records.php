@@ -9,7 +9,19 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
-$query = "SELECT * FROM students ORDER BY form_no DESC";
+$query = "
+    SELECT 
+        students.*,
+        addresses.address AS student_address,
+        addresses.city,
+        addresses.state,
+        addresses.country
+    FROM students
+    LEFT JOIN addresses 
+        ON students.form_no = addresses.student_id
+    ORDER BY students.form_no DESC
+";
+
 $result = mysqli_query($conn, $query);
 
 if (!$result) {
@@ -39,8 +51,10 @@ if (!$result) {
     </div>
 
     <div class="table-container">
+
         <table>
-           <thead>
+
+            <thead>
                 <tr>
                     <th>Sr. No.</th>
                     <th>Form No</th>
@@ -56,6 +70,7 @@ if (!$result) {
                     <th>Student Type</th>
                     <th>Class / Course</th>
                     <th>Created At</th>
+                    <th>Action</th>
                 </tr>
             </thead>
 
@@ -73,31 +88,78 @@ if (!$result) {
 
                         <td><?php echo $sr_no++; ?></td>
 
-                        <td><?php echo htmlspecialchars($row['form_no']); ?></td>
+                        <td>
+                            <?php echo htmlspecialchars($row['form_no']); ?>
+                        </td>
 
-                        <td><?php echo htmlspecialchars($row['first_name']); ?></td>
+                        <td>
+                            <?php echo htmlspecialchars($row['first_name']); ?>
+                        </td>
 
-                        <td><?php echo htmlspecialchars($row['last_name']); ?></td>
+                        <td>
+                            <?php echo htmlspecialchars($row['last_name']); ?>
+                        </td>
 
-                        <td><?php echo htmlspecialchars($row['father_name']); ?></td>
+                        <td>
+                            <?php echo htmlspecialchars($row['father_name']); ?>
+                        </td>
 
-                        <td><?php echo htmlspecialchars($row['mother_name']); ?></td>
+                        <td>
+                            <?php echo htmlspecialchars($row['mother_name']); ?>
+                        </td>
 
-                        <td><?php echo htmlspecialchars($row['email']); ?></td>
+                        <td>
+                            <?php echo htmlspecialchars($row['email']); ?>
+                        </td>
 
-                        <td><?php echo htmlspecialchars($row['phone']); ?></td>
+                        <td>
+                            <?php echo htmlspecialchars($row['phone']); ?>
+                        </td>
 
-                        <td><?php echo htmlspecialchars($row['date_of_birth']); ?></td>
+                        <td>
+                            <?php echo htmlspecialchars($row['date_of_birth']); ?>
+                        </td>
 
-                        <td><?php echo htmlspecialchars($row['gender']); ?></td>
+                        <td>
+                            <?php echo htmlspecialchars($row['gender']); ?>
+                        </td>
 
-                        <td><?php echo htmlspecialchars($row['address']); ?></td>
+                        <td>
+                           <?php
+                          $address_parts = array_filter([
+                              $row['student_address'],
+                              $row['city'],
+                              $row['state'],
+                              $row['country']
+                          ]);
 
-                        <td><?php echo htmlspecialchars($row['student_type']); ?></td>
+                          echo htmlspecialchars(implode(', ', $address_parts));
+                          ?>
+                        </td>
 
-                        <td><?php echo htmlspecialchars($row['class_course']); ?></td>
+                        <td>
+                            <?php echo htmlspecialchars($row['student_type']); ?>
+                        </td>
 
-                        <td><?php echo htmlspecialchars($row['created_at']); ?></td>
+                        <td>
+                            <?php echo htmlspecialchars($row['class_course']); ?>
+                        </td>
+
+                        <td>
+                            <?php echo htmlspecialchars($row['created_at']); ?>
+                        </td>
+
+                        <td>
+
+                            <a href="student_edit.php?form_no=<?php echo $row['form_no']; ?>" class="edit-btn">
+                                ✏️ Edit
+                            </a>
+
+                            <a href="student_delete.php?form_no=<?php echo $row['form_no']; ?>" class="delete-btn">
+                                🗑 Delete
+                            </a>
+
+                        </td>
 
                     </tr>
 
@@ -106,7 +168,7 @@ if (!$result) {
             <?php } else { ?>
 
                 <tr>
-                    <td colspan="16" class="no-data">
+                    <td colspan="15" class="no-data">
                         No students found
                     </td>
                 </tr>
@@ -120,7 +182,9 @@ if (!$result) {
     </div>
 
 </div>
-   <a href="../students/records.php" class="back-btn">Back</a>
+
+<a href="../dashboard/dashboard.php" class="back-btn">Back</a>
+
 </body>
 
 </html>
