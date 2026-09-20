@@ -78,6 +78,6 @@ if (mysqli_num_rows($result) == 1) {
     </p>
 
 </div>
-
+    <a href="../index.php" class="back-btn">Back</a>
 </body>
 </html>

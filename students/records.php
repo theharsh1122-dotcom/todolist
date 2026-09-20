@@ -67,6 +67,9 @@ if (!$result) {
                     <th>Date of Birth</th>
                     <th>Gender</th>
                     <th>Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Country</th>
                     <th>Student Type</th>
                     <th>Class / Course</th>
                     <th>Created At</th>
@@ -124,18 +127,13 @@ if (!$result) {
                             <?php echo htmlspecialchars($row['gender']); ?>
                         </td>
 
-                        <td>
-                           <?php
-                          $address_parts = array_filter([
-                              $row['student_address'],
-                              $row['city'],
-                              $row['state'],
-                              $row['country']
-                          ]);
+                        <td><?php echo htmlspecialchars($row['student_address']); ?></td>
 
-                          echo htmlspecialchars(implode(', ', $address_parts));
-                          ?>
-                        </td>
+                        <td><?php echo htmlspecialchars($row['city']); ?></td>
+                        
+                        <td><?php echo htmlspecialchars($row['state']); ?></td>
+                        
+                        <td><?php echo htmlspecialchars($row['country']); ?></td>
 
                         <td>
                             <?php echo htmlspecialchars($row['student_type']); ?>
@@ -168,7 +166,7 @@ if (!$result) {
             <?php } else { ?>
 
                 <tr>
-                    <td colspan="15" class="no-data">
+                    <td colspan="18" class="no-data">
                         No students found
                     </td>
                 </tr>

@@ -150,6 +150,6 @@ if (isset($_POST['register'])) {
     </p>
 
 </div>
-
+<a href="../index.php" class="back-btn">Back</a>
 </body>
 </html>

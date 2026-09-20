@@ -106,7 +106,7 @@ $total = mysqli_fetch_assoc($total_result)['total'];
 
     </table>
 
-    <a href="../todos/todo.php" class="back-btn">Back</a>
+    <a href="../dashboard/dashboard.php" class="back-btn">Back</a>
 
 </div>
 

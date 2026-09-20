@@ -81,6 +81,25 @@ button:hover {
     color: red;
     text-align: center;
 }
+
+.back-btn {
+    position: fixed;
+    left: 25px;
+    bottom: 20px;
+    padding: 10px 22px;
+    background: #0fe9d7;
+    color: black;
+    text-decoration: none;
+    border-radius: 7px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: 0.2s ease;
+}
+
+.back-btn:hover {
+    background: #0816e0;
+    color: white;
+}
 @media (max-width: 768px) {
 
     .register-container {
